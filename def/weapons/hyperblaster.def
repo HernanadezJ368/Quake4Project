@@ -106,10 +106,10 @@ entityDef weapon_hyperblaster
 	"recoilAngles"				"1 0 0"
 	
 	"mtr_flashShader"			"lights/muzzleflash"
-	"flashColor"				"0.7 0.8 1"
-	"flashRadius"				"200"
+	"flashColor"				"0 1 0"
+	"flashRadius"				"5000000"
 	"flashPointLight"			"1"
-	"flashTime"					".1"
+	"flashTime"					"45"
 	"flashViewOffset"			"0 0 50000"
 
 	"mtr_guiLightShader"		"lights/viewWeaponGuiLight"
@@ -192,9 +192,10 @@ entityDef moveable_item_hyperblaster
 
 /*model weapon_hyperblaster_view
 {
-	mesh						models/weapons/hyperblaster/mesh.md5mesh
+	//mesh						models/weapons/hyperblaster/mesh.md5mesh
+	mesh						models/mapobjects/strogg/machines/casket/mesh.md5mesh
 	
-	skin						skins/weapons/hyperblaster/nobounce
+	//skin						skins/weapons/hyperblaster/nobounce
 	
 	anim idle 					models/weapons/hyperblaster/idle.md5anim	
 	anim fire 					models/weapons/hyperblaster/fire.md5anim	
@@ -217,14 +218,18 @@ entityDef moveable_item_hyperblaster
 
 model weapon_hyperblaster_view_strogg
 {
-	inherit						weapon_hyperblaster_view
-	mesh						models/weapons/hyperblaster/mesh_strogg.md5mesh
+	//inherit						weapon_hyperblaster_view
+	//mesh						models/weapons/hyperblaster/mesh_strogg.md5mesh
+	//inherit						weapon_railgun_view
+	mesh						models\mapobjects\marine\equipment\phone\phone.md5mesh
 }
 
 model weapon_hyperblaster_world 
 {
-	mesh					models/weapons/hyperblaster/world/hyperblaster.md5mesh
-	anim idle				models/weapons/hyperblaster/world/idle.md5anim
+	//mesh					models/weapons/hyperblaster/world/hyperblaster.md5mesh
+	//anim idle				models/weapons/hyperblaster/world/idle.md5anim
+	mesh					models\mapobjects\marine\equipment\phone\phone.md5mesh
+	anim idle				models\mapobjects\marine\equipment\phone\idle.md5anim
 }*/
 
 //--------------------------------------------------------------------------------------------------------------------
@@ -306,62 +311,25 @@ entityDef damage_hyperblaster_splash_mp
 entityDef projectile_hyperblaster
 {
 	"spawnclass"				"idProjectile"
+	"inherit"					"projectile_blaster_base"
+
 	"mins"						"-4 -4 -4"
 	"maxs"						"4 4 4"
 	"cone"						"1"
-	"noshadows"					"1"
-	"clipmask_largeshot"		"1"
-	
-	"no_contents"				"0"
-								
-	"model"						"models/weapons/grenadelauncher/w_grenade.lwo"
-	"def_damage"				"damage_grenadeDirect"
-	"def_splash_damage"			"damage_grenadeSplash"
-																											
-	"speed"						"9"
-	"angular_velocity"			"50000 0 0"
-	"settle_duration"			"5"
-	
-	"linear_friction"			"0"
-	"angular_friction"			"0"
-	"contact_friction"			"10"
-	"bounce"					".65"
+
+	"velocity"					"1200 0 0"
 	"gravity"					"1"
-	"fuse"						"15"
-								
-	"detonate_on_fuse"			"1"
-	"detonate_on_death"			"0"
-	"detonate_on_world"			"0"
-	"detonate_on_actor"			"0"
-	"detonateTestGroundMaterial"	"1"
-								
-	"impact_gib"				"1"								
-	"decal_size"				"75"
-
-	"flyEffectAttenuateSpeed"	"200"
 	
-	"airBurst_desc"				"midair_"
+	"def_damage"				"damage_acidgun"
 
-	"fx_fly"				"effects/weapons/grenadelauncher/trail.fx"
-	"fx_fly_mp"				"effects/weapons/grenadelauncher/trail_mp.fx"
-	"fx_detonate"				"effects/weapons/grenadelauncher/detonate.fx"
-	"fx_detonate_mp"			"effects/weapons/rocketlauncher/detonate_mp.fx"
-	"fx_impact"				"effects/weapons/grenadelauncher/impact.fx"
-	"fx_impact_mp"				"effects/weapons/rocketlauncher/impact_mp.fx"
-	"fx_impact_concrete"			"effects/weapons/grenadelauncher/impact_concrete.fx"
-	"fx_impact_concrete_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
-	"fx_impact_rock"			"effects/weapons/grenadelauncher/impact_concrete.fx"
-	"fx_impact_rock_mp"			"effects/weapons/rocketlauncher/impact_mp.fx"
-	"fx_impact_water"			"effects/ambient/splash_med.fx"
-
-	"friendly_impact"			"1"
-
-	"snd_ricochet"				"grenade_bounce"	
-
-	"net_syncPhysics"			"1"
+	//"fx_fly"					"effects/vehicles/acidgun/fly.fx"
+	//"fx_trail"					"effects/vehicles/acidgun/trail.fx"
+	//"fx_impact"					"effects/monsters/spiderhead/acid_impact.fx"
 	
-	"fx_teleport_enter"		"effects/mp/item_teleport.fx"
-	"fx_teleport"			"effects/mp/item_teleport.fx"
+	"fx_fly"					"effects/monsters/slimy_transfer/vomit_fly.fx"
+	"fx_impact"					"effects/monsters/slimy_transfer/vomit_burst.fx"
+	
+	"mass"						"1"
 }
 
 entityDef projectile_hyperblaster_mp

@@ -807,7 +807,7 @@ entityDef player_marine
 	
 	"def_playerView"					"playerView_marine"
 	"pm_thirdperson"						"1"
-	"pm_thirdPersonAngle" 				"180" 
+	"pm_thirdPersonAngle" 				"180"
 }
 
 entityDef player_strogg
